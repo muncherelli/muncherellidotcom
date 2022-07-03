@@ -1,6 +1,5 @@
 
 .hugo_build.lock
-public/
 node_modules/
 resources/_gen/
 .DS_Store
