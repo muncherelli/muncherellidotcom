@@ -1,0 +1,23 @@
+{
+	"baseurl": "https://muncherelli.com",
+	"languageCode": "en-us",
+	"title": "muncherelli",
+	"module": {
+		"hugoVersion": {
+			"extended": true,
+			"min": "0.92.1"
+		}
+	},
+	"menu": {
+		"main": [
+			{
+				"identifier": "blog",
+				"name": "Blog",
+				"title": "blog section",
+				"url": "/blog.html",
+				"weight": -110
+			}
+		]
+	},
+	"uglyurls": true
+}

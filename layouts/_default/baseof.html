@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="{{ .Language.Lang }}">
+    <head>
+        {{ partial "head.html" . }}
+
+        <!-- // On page load or when changing themes, best to add inline in `head` to avoid FOUC -->
+        <script type="application/javascript">
+            if (
+                localStorage.themeSelector === "dark" ||
+                (!("themeSelector" in localStorage) &&
+                    window.matchMedia("(prefers-color-scheme: dark)").matches)
+            ) {
+                document.documentElement.classList.add("dark");
+            } else {
+                document.documentElement.classList.remove("dark");
+            }
+        </script>
+    </head>
+    <body class="dark:bg-gray-900 transition-colors duration-300">
+        {{ partial "nav.html" . }} {{ partial "triangles.html" . }} {{ block
+        "main" . }}{{ end }} {{ partial "footer.html" . }} {{ $js :=
+        resources.Get "/js/main.js" | minify | fingerprint "sha512" }}
+        <script
+            type="text/javascript"
+            src="{{ $js.RelPermalink }}"
+            integrity="{{ $js.Data.Integrity }}"
+            defer
+        ></script>
+    </body>
+</html>
